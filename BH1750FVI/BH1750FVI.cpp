@@ -12,6 +12,17 @@ BH1750FVI::BH1750FVI(){
    digitalWrite(AddrPin,HIGH);
       
   }
+  
+  
+  void BH1750FVI::begin(int sda, int scl){
+   Wire.begin(sda,scl); 
+   I2CWriteTo(Power_On ); //Turn it On 
+   pinMode(AddrPin,OUTPUT);
+   digitalWrite(AddrPin,HIGH);
+      
+  }
+  
+  
   void BH1750FVI::Sleep(void){
     I2CWriteTo(Power_Down ); //Turn it off , Reset operator won't work in this mode
   }
